@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+    margin: 0px;
+}
+
+body {
+    background: #ccf2ff;
+    background-size: 100%;
+}
+
+.container {
+    width: 100%;
+}
+
+img {
+    margin: 10px;
+}
+
+.row {
+    margin-bottom: 20px;
+}

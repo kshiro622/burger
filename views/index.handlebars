@@ -1,0 +1,13 @@
+<div class="col-md-2"></div>
+<div class="col-md-4" id="not-devoured">
+	<ul>
+	  {{#each burgers}}
+	  	<li>
+	  	   <p>{{this.id}}.</p>
+	       <p>{{this.burger_name}}</p>
+	  	</li>
+	  {{/each}}
+	</ul>
+</div>
+<div class="col-md-4" id="devoured"></div>
+<div class="col-md-2"></div>

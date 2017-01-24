@@ -1,22 +1,25 @@
 var express = require('express');
-var burger = require('../models/burger')(app);
+var router = express.Router();
+var burger = require('../models/burger');
 
-var app = express();
-
-module.export = function(app) {
-    // Get route
-    app.get("/index", function(req, res) {
-        connection.query("SELECT * FROM burgers;", function(err, data) {
-            if (err) throw err;
-            res.render("index", { burgers: data });
-        });
+// Create all our routes and set up logic within those routes where required.
+router.get("/", function(req, res) {
+    burger.all(function(data) {
+        res.render("index", { burgers: data });
     });
+});
 
-    // Post route
-    app.post("/add", function(req, res) {
-        connection.query("INSERT INTO burgers (burger_name) VALUES (?)", [req.body.event], function(err, result) {
-            if (err) throw err;
-            res.redirect("/");
-        });
+router.post("/", function(req, res) {
+    burger.add(req.body.burger_name, function() {
+        res.redirect("/");
     });
-};
+});
+
+router.put("/:id", function(req, res) {
+    burger.update(req.body_id, req.body_devoured, function() {
+        res.redirect("/");
+    });
+});
+
+// Export routes for server.js to use.
+module.exports = router;

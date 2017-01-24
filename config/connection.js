@@ -1,16 +1,17 @@
 var mysql = require('mysql');
 
-module.exports = function(app) {
-    var connection = mysql.createConnection({
-        host: "localhost",
-        port: 3306,
-        user: "root",
-        password: password.mySqlPw.password,
-        database: "burgers_db"
-    });
+var connection = mysql.createConnection({
+    host: "localhost",
+    port: 3306,
+    user: "root",
+    password: password.mySqlPw.password,
+    database: "burgers_db"
+});
 
-    connection.connect(function(err) {
-        if (err) throw err;
-        console.log("connected as id " + connection.threadId);
-    });
-};
+connection.connect(function(err) {
+    if (err) throw err;
+    console.log("connected as id " + connection.threadId);
+});
+
+// Export connection for our ORM to use.
+module.exports = connection;

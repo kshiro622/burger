@@ -1,15 +1,23 @@
 // Routes
-var connection = require('../config/connection')(app);
+var orm = require('../config/orm');
 
-// replace submit and entry
-module.export = function(app) {
-    $('#submit').on('click', function() {
-        var burgerName = $('#burger-input').val().trim();
-        var newBurger = {
-            burger_name: burgerName
-        };
-        app.post("/add", function(req, res) {
-            res.json(newBurger);
+var burger = {
+    all: function(cb) {
+        orm.all("burgers", function(res) {
+            cb(res);
         });
-    });
+    }
+    add: function(value, cb) {
+        orm.create("burgers", value, function(res) {
+            cb(res);
+        });
+    }
+    update: function(id, condition, cb) {
+        orm.update("burgers", id, condition, function(res) {
+            cb(res);
+        })
+    }
 };
+
+// Export the database functions for the controller
+module.exports = burger;

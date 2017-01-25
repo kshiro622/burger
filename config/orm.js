@@ -13,21 +13,15 @@ var orm = {
         });
     },
     add: function(table, value, cb) {
-        connection.query("INSERT INTO " + table + " SET ??", {
-            burger_name: value
-        }, function(err, res) {
+        connection.query("INSERT INTO " + table + " (burger_name) VALUES (?)", value, function(err, result) {
             if (err) {
                 throw err;
             }
             cb(result);
         });
     },
-    update: function(table, id, condition, cb) {
-        connection.query("UPDATE " + table + " SET ?? WHERE id = ??", [{
-            devoured: condition
-        }, {
-            id: id
-        }], function(err, result) {
+    update: function(table, id, cb) {
+        connection.query("UPDATE " + table + " SET devoured = 1 WHERE id = ?", [id], function(err, result) {
             if (err) {
                 throw err;
             }

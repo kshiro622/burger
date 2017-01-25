@@ -12,11 +12,12 @@ router.get("/", function(req, res) {
 router.post("/", function(req, res) {
     burger.add(req.body.burger_name, function() {
         res.redirect("/");
+
     });
 });
 
 router.put("/:id", function(req, res) {
-    burger.update(req.body_id, req.body_devoured, function() {
+    burger.update(req.body.id, function() {
         res.redirect("/");
     });
 });

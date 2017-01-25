@@ -2,6 +2,7 @@
     box-sizing: border-box;
     text-align: center;
     margin: 0px;
+    font-family: 'Indie Flower', cursive;
 }
 
 body {
@@ -15,8 +16,64 @@ body {
 
 img {
     margin: 10px;
+    margin-bottom: 0;
 }
 
 .row {
     margin-bottom: 20px;
+}
+
+#not-devoured {
+    text-align: left;
+    font-size: 20px;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+    padding-right: 0;
+    color: #76a159;
+}
+
+.devour-form {
+    width: 20%;
+    display: inline-block;
+    margin-right: 40px;
+    font-family: 'Amatic SC', cursive;
+}
+
+#top {
+    background: #808080;
+    color: #ffffff;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+}
+
+.devour-button {
+    margin-right: 30px;
+    margin-left: 20px;
+}
+
+#devoured {
+    text-align: left;
+    font-size: 20px;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+}
+
+.p-devoured {
+    font-family: 'Amatic SC', cursive;
+    color: #808080;
+}
+
+h2 {
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+#devoured-h {
+    width: 100%;
+}
+
+#to-devour-h {
+    margin-right: 100px;
+    color: black;
 }

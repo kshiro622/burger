@@ -6,16 +6,16 @@ var burger = {
         orm.all("burgers", function(res) {
             cb(res);
         });
-    }
+    },
     add: function(value, cb) {
-        orm.create("burgers", value, function(res) {
+        orm.add("burgers", value, function(res) {
             cb(res);
         });
-    }
+    },
     update: function(id, condition, cb) {
         orm.update("burgers", id, condition, function(res) {
             cb(res);
-        })
+        });
     }
 };
 

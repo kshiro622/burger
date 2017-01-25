@@ -58,6 +58,9 @@ img {
     font-weight: 700;
 }
 
+
+/*p-tag of devoured burgers*/
+
 .p-devoured {
     font-family: 'Amatic SC', cursive;
     color: #808080;
@@ -69,9 +72,15 @@ h2 {
     margin-bottom: 30px;
 }
 
+
+/*Devoured header*/
+
 #devoured-h {
     width: 100%;
 }
+
+
+/*To Devour header*/
 
 #to-devour-h {
     margin-right: 100px;

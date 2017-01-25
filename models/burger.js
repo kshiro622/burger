@@ -1,19 +1,23 @@
-// Routes
+// Dependencies
 var orm = require('../config/orm');
 
+// Define burger object
 var burger = {
-    all: function(cb) {
-        orm.all("burgers", function(res) {
+    // select all burgers from the table
+    selectAll: function(cb) {
+        orm.selectAll("burgers", function(res) {
             cb(res);
         });
     },
-    add: function(value, cb) {
-        orm.add("burgers", value, function(res) {
+    // insert a burger into table
+    insertOne: function(value, cb) {
+        orm.insertOne("burgers", value, function(res) {
             cb(res);
         });
     },
-    update: function(id, cb) {
-        orm.update("burgers", id, function(res) {
+    // update burger's devoured status in table
+    updateOne: function(id, cb) {
+        orm.updateOne("burgers", id, function(res) {
             cb(res);
         });
     }

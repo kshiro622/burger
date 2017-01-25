@@ -1,23 +1,27 @@
+// Dependencies
 var express = require('express');
 var router = express.Router();
 var burger = require('../models/burger');
 
-// Create all our routes and set up logic within those routes where required.
+// ====== ROUTES ===== //
+// route to get information about burgers and render it in index.handlebars
 router.get("/", function(req, res) {
-    burger.all(function(data) {
+    burger.selectAll(function(data) {
         res.render("index", { burgers: data });
     });
 });
 
+// route to add new entry
 router.post("/", function(req, res) {
-    burger.add(req.body.burger_name, function() {
+    burger.insertOne(req.body.burger_name, function() {
         res.redirect("/");
 
     });
 });
 
+// route to update an entry
 router.put("/:id", function(req, res) {
-    burger.update(req.body.id, function() {
+    burger.updateOne(req.body.id, function() {
         res.redirect("/");
     });
 });

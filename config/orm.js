@@ -2,9 +2,10 @@
 var connection = require("../config/connection.js");
 
 
-// Object for all our SQL statement functions.
+// Create orm object (perform actions on database)
 var orm = {
-    all: function(table, cb) {
+    // select all data from database
+    selectAll: function(table, cb) {
         connection.query("SELECT * FROM " + table + ";", function(err, result) {
             if (err) {
                 throw err;
@@ -12,7 +13,8 @@ var orm = {
             cb(result);
         });
     },
-    add: function(table, value, cb) {
+    // insert new burger into database
+    insertOne: function(table, value, cb) {
         connection.query("INSERT INTO " + table + " (burger_name) VALUES (?)", value, function(err, result) {
             if (err) {
                 throw err;
@@ -20,7 +22,8 @@ var orm = {
             cb(result);
         });
     },
-    update: function(table, id, cb) {
+    // update burger's devoured status in database by id
+    updateOne: function(table, id, cb) {
         connection.query("UPDATE " + table + " SET devoured = 1 WHERE id = ?", [id], function(err, result) {
             if (err) {
                 throw err;
@@ -30,5 +33,5 @@ var orm = {
     }
 };
 
-// Export the orm object for the model (cat.js).
+// Export the orm object for the model
 module.exports = orm;

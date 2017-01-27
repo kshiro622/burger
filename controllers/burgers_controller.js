@@ -13,10 +13,15 @@ router.get("/", function(req, res) {
 
 // route to add new entry
 router.post("/", function(req, res) {
-    burger.insertOne(req.body.burger_name, function() {
-        res.redirect("/");
+    if (req.body.burger_name.length > 1) {
+        burger.insertOne(req.body.burger_name, function() {
+            res.redirect("/");
 
-    });
+        });
+    } else {
+        console.log("Please enter a burger to add.");
+        res.redirect("/");
+    }
 });
 
 // route to update an entry
